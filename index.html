@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div id="description">
+      Press enter or click away from a box to confirm input. 
+      <br><br>
+      Invalid inputs will not be saved.
+      <div id="error-container"></div>
+    </div>
+    <div id="table-wrapper">
+      <div id="table">
+        <div id="column-header" class="row">
+          <div class="index-box"></div>
+          <div class="name-box">
+            <img src="assets/name-icon.png" />
+            Name
+          </div>
+          <div class="email-box">
+            <img src="assets/email-icon.png" />
+            Email
+          </div>
+          <div class="level-box">
+            <img src="assets/level-icon.png" />
+            Level
+          </div>
+        </div>
+        <div class="row">
+          <div class="index-box">1</div>
+          <div class="name-box" contenteditable="true" onfocusin="readyValidation()">Firstname Lastname</div>
+          <div class="email-box" contenteditable="true" onfocusin="readyValidation()">firstname@email.com</div>
+          <div class="level-box" contenteditable="true" onfocusin="readyValidation()">first-year</div>
+        </div>
+      </div>
+      <div id="add-button" onclick="addRow()">
+        <img src="assets/add-icon.png">
+        <div style="margin-left: 1%">New Row</div>
+      </div>
+    </div>
+    <script src="index.js" async defer></script>
+  </body>
+</html>
