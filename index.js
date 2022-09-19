@@ -1,3 +1,4 @@
+// Confirm input on pressing enter
 document.addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
     e.preventDefault();
@@ -13,6 +14,7 @@ const readyValidation = () => {
   const activeElement = document.activeElement;
 
   const validate = () => {
+    // Determine type of data to validate, and the corresponding regex expression for it
     let dataType = "none";
     let reg = null;
     if (activeElement.classList.contains('name-box')) {
@@ -27,13 +29,13 @@ const readyValidation = () => {
       reg = /(first|second|third|fourth)-year/;
       dataType = "level";
     }
-
+    
+    // If input is valid or is empty, allow input into table
+    // Else display error message + red border
     if (reg.test(activeElement.textContent) || activeElement.textContent === "") {
-      console.log("yay");
       activeElement.style.outline = "none";
     } 
     else {
-      console.log("no");
       activeElement.textContent = "";
       activeElement.style.outline = "2px solid red";
 
@@ -41,7 +43,7 @@ const readyValidation = () => {
       errorContainer.innerHTML = `Error: Invalid ${dataType} entered.`;
     }
 
-    // Remove event listener on unfocusing
+    // Remove event listener after validation
     activeElement.removeEventListener("focusout", validate);
   }
 
@@ -49,7 +51,7 @@ const readyValidation = () => {
 }
 
 
-let lastIndex = 1;
+let lastIndex = 1; // index of lowest row
 
 const addRow = () => {
   lastIndex++; 
